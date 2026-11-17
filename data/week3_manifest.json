@@ -1,0 +1,17 @@
+{
+  "pipeline_version": "week3-v1",
+  "generated_at_utc": "2026-11-17T11:13:57.621448+00:00",
+  "records": [
+    {
+      "source_id": "S01",
+      "source_filename": "NATIONAL-GUIDELINES-OF-AIGE-20241118.pdf",
+      "source_sha256": "53ad6738d33e80f2692319a8e48dbc170e54b363d4104680ba37c24c5ae20a93",
+      "prepared_output": "data/processed/prepared_text.jsonl",
+      "prepared_sha256": "6965c1e4806d2f636934f3e503da221deabfb064c97d0c3dbdc219c258ea6a81",
+      "processing_note": "fixed-char-500",
+      "source_version": "Not verified",
+      "access_rights": "Not verified",
+      "status": "Prepared; quality review pending"
+    }
+  ]
+}

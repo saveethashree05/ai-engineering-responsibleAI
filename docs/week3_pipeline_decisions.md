@@ -37,6 +37,7 @@ Record 50 of 513 is readable but begins mid-word and contains page furniture, wh
 - Part C records contain `id` and the full source path; checksums are held in `pipeline_manifest.json` instead of in each record.
 - The method, configuration and record count (513) are identical.
 - Both manifests exist: `data/week3_manifest.json` (Part B) and `data/pipeline_v1/documents/pipeline_manifest.json` (Part C).
+- File size and checksum differ between outputs (Part B: 393,657 bytes; Part C: 325,833 bytes) because Part B records carry extra per-record fields (`record_id`, `source_sha256`). The 513 chunks and their text are produced by the same method.
 
 ## 8. ETL / ELT decision
 ETL. Text is extracted from the PDF and transformed (cleaned and chunked) before being loaded as JSONL, because the chunk format is needed before any later step can use the data. ELT was not chosen because there is no database or warehouse to transform inside, and the raw PDF is kept unchanged in `data/raw/`.
@@ -49,6 +50,7 @@ Batch. The guideline documents are static files that change rarely, so the pipel
 - Part C output: `data/pipeline_v1/documents/prepared_text.jsonl`
 - Manifests: `data/week3_manifest.json` and `data/pipeline_v1/documents/pipeline_manifest.json`
 - Notebook: `notebooks/week3_pipeline.ipynb`
+- Approved storage for prepared text and raw PDFs: private Google Drive folder `ai-engineering-responsibleai-week3` (not public, not in GitHub).
 
 ## 11. Provenance and access caveat
 The source PDF states "all rights reserved" and no reproduction without permission. The raw PDF and prepared text chunks are therefore not committed to GitHub; only manifests (hashes and metadata), the notebook, the inventory, the diagram and this file are shared. The manifests carry the lab's default values "Not verified" for source version and access rights; the checked rights information is recorded in `docs/week3_data_inventory.md`. The checksum validation confirms that files match their recorded hashes, not that the data is legally shareable or of sufficient quality.
